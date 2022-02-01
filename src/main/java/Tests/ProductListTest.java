@@ -49,10 +49,9 @@ public class ProductListTest {
     ProductListSteps productListSteps;
 
     @Before
-    public void beforeTest() throws InterruptedException {
+    public void beforeTest() {
         driver.navigate().to(URL);
         driver.manage().window().maximize();
-        //Thread.sleep(5000);
     }
 
 
@@ -106,6 +105,8 @@ public class ProductListTest {
         productListSteps.clickBack();
         productListSteps.clickImage(Items.BIKE_LIGHT.getText());
     }
+
+
 
     @After
     public void afterTest(){
