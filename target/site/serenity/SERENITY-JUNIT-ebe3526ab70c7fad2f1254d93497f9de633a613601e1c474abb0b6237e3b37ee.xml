@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="1" name="Tests.LoginTest" skipped="0" tests="1" time="12.35" timestamp="2022-01-31 02:15:19"><testcase classname="Tests.LoginTest" name="User fail login"><failure message="Wrong login page url." type="java.lang.AssertionError">Wrong login page url.</failure><system-err>Wrong login page url.&#13;
-Steps.LoginSteps.shouldNotBeLoggedIn(LoginSteps.java:43)&#13;
-Tests.LoginTest.userFailLogin(LoginTest.java:45)&#13;
-</system-err></testcase></testsuite>
