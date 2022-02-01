@@ -17,10 +17,13 @@ public class ProductListSteps {
     public void showAllProducts(){
         List<WebElementFacade> productList = getProductList();
         for(WebElementFacade item : productList){
-            String description = productListPage.getDescription(item).getText();
-            String price = productListPage.getPrice(item).getText();
-            String add_product = productListPage.getAddProduct(item).getText();
-            System.out.println(description + "\n" + price + "\n" +   add_product);
+            WebElementFacade description = productListPage.getDescription(item);
+            WebElementFacade price = productListPage.getPrice(item);
+            WebElementFacade add_product = productListPage.getAddProduct(item);
+            System.out.println("For item :" + productListPage.getItem(item).getText() +
+                    "\n Is description text displayed? " + description.isDisplayed() +
+                    "\n Is price text displayed? :" + price.isDisplayed() +
+                    "\n Is add to cart button displayed? :" +   add_product.isDisplayed());
         }
     }
 
@@ -32,33 +35,34 @@ public class ProductListSteps {
     @Step
     public void checkProductPrice() {
         List<WebElementFacade> productList = getProductList();
-        int count = 0;
-        for(WebElementFacade item : productList){
+        for (WebElementFacade item : productList) {
             String price = productListPage.getPrice(item).getText();
-            String product_label = productListPage.getLabel(item).getText();
+            String product_label = productListPage.getItem(item).getText();
             System.out.println(product_label);
-//            int checked_price = Integer.parseInt(price);
-            if(product_label.equalsIgnoreCase("Sauce Labs Backpack"))
-                assertTrue("$29.99".equalsIgnoreCase(price));
-            else if(product_label.equalsIgnoreCase("Sauce Labs Bike Light"))
-                assertTrue("$9.99".equalsIgnoreCase(price));
-            else if(product_label.equalsIgnoreCase("Sauce Labs Bolt T-Shirt"))
-                assertTrue("$15.99".equalsIgnoreCase(price));
-            else if(product_label.equalsIgnoreCase("Sauce Labs Fleece Jacket"))
-                assertTrue("$49.99".equalsIgnoreCase(price));
-            else if(product_label.equalsIgnoreCase("Sauce Labs Onesie"))
-                assertTrue("$7.99".equalsIgnoreCase(price));
-            else if(product_label.equalsIgnoreCase("Test.allTheThings() T-Shirt (Red)"))
-                assertTrue("$15.99".equalsIgnoreCase(price));
-            count++;
-
+            switch (product_label) {
+                case "Sauce Labs Backpack":
+                    assertTrue("$29.99".equalsIgnoreCase(price));
+                    break;
+                case "Sauce Labs Bike Light":
+                    assertTrue("$9.99".equalsIgnoreCase(price));
+                    break;
+                case "Sauce Labs Bolt T-Shirt":
+                case "Test.allTheThings() T-Shirt (Red)":
+                    assertTrue("$15.99".equalsIgnoreCase(price));
+                    break;
+                case "Sauce Labs Fleece Jacket":
+                    assertTrue("$49.99".equalsIgnoreCase(price));
+                    break;
+                case "Sauce Labs Onesie":
+                    assertTrue("$7.99".equalsIgnoreCase(price));
+                    break;
+            }
         }
-        System.out.println(count);
     }
 
     @Step
     public void clickLabel(String label){
-        productListPage.getLabel2(label).click();
+        productListPage.getLabel(label).click();
     }
 
     @Step
@@ -66,68 +70,10 @@ public class ProductListSteps {
         productListPage.getImage(image).click();
     }
 
-    @Step
-    public void clickBackPack(){
-        productListPage.clickBackpackLabel().click();
-        String EXPECTED_URL = "https://www.saucedemo.com/inventory-item.html?id=4";
-        String CURRENT_URL = productListPage.getDriver().getCurrentUrl();
-        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
-        productListPage.clickBackButton();
-        productListPage.clickBackpackImg().click();
-        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
-    }
-    @Step
-    public void clickBoldTshirt() {
-        productListPage.clickBoldTshirtLabel().click();
-        String EXPECTED_URL = "https://www.saucedemo.com/inventory-item.html?id=1";
-        String CURRENT_URL = productListPage.getDriver().getCurrentUrl();
-        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
-        productListPage.clickBackButton();
-        productListPage.clickBoldTshirtImg().click();
-        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
-    }
-    @Step
-    public void clickRedTshirt() {
-        productListPage.clickRedTshirtLabel().click();
-        String EXPECTED_URL = "https://www.saucedemo.com/inventory-item.html?id=3";
-        String CURRENT_URL = productListPage.getDriver().getCurrentUrl();
-        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
-        clickBack();
-        productListPage.clickRedTshirtImg().click();
-        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
-    }
-    @Step
-    public void clickOnesie() {
-        productListPage.clickOnesieLabel().click();
-        String EXPECTED_URL = "https://www.saucedemo.com/inventory-item.html?id=2";
-        String CURRENT_URL = productListPage.getDriver().getCurrentUrl();
-        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
-        clickBack();
-        productListPage.clickOnesieImg().click();
-        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
-    }
-    @Step
-    public void clickJacket() {
-        productListPage.clickJacketLabel().click();
-        String EXPECTED_URL = "https://www.saucedemo.com/inventory-item.html?id=5";
-        String CURRENT_URL = productListPage.getDriver().getCurrentUrl();
-        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
-        productListPage.clickBackButton();
-        productListPage.clickJacketImg().click();
-        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
-    }
-    @Step
-    public void clickBikeLight() {
-        productListPage.clickBikeLightLabel().click();
-        String EXPECTED_URL = "https://www.saucedemo.com/inventory-item.html?id=0";
-        String CURRENT_URL = productListPage.getDriver().getCurrentUrl();
-        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
-        productListPage.clickBackButton();
-        productListPage.clickBikeLightImg().click();
-        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
-    }
+
     @Step
     public void clickBack() {
         productListPage.clickBackButton().click();
     }
+
 }
