@@ -21,7 +21,7 @@ public class LoginTest {
     LoginSteps loginSteps;
 
     @Before
-    public void beforeTest() throws InterruptedException {
+    public void beforeTest()  {
         driver.navigate().to(URL);
         driver.manage().window().maximize();
         //Thread.sleep(5000);
@@ -52,7 +52,7 @@ public class LoginTest {
     }
 
     @After
-    public void afterTest() throws InterruptedException {
+    public void afterTest(){
        //Thread.sleep(5000);
         driver.close();
     }

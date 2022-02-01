@@ -5,8 +5,6 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 
 import java.util.List;
-
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 
@@ -56,5 +54,80 @@ public class ProductListSteps {
 
         }
         System.out.println(count);
+    }
+
+    @Step
+    public void clickLabel(String label){
+        productListPage.getLabel2(label).click();
+    }
+
+    @Step
+    public void clickImage(String image){
+        productListPage.getImage(image).click();
+    }
+
+    @Step
+    public void clickBackPack(){
+        productListPage.clickBackpackLabel().click();
+        String EXPECTED_URL = "https://www.saucedemo.com/inventory-item.html?id=4";
+        String CURRENT_URL = productListPage.getDriver().getCurrentUrl();
+        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
+        productListPage.clickBackButton();
+        productListPage.clickBackpackImg().click();
+        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
+    }
+    @Step
+    public void clickBoldTshirt() {
+        productListPage.clickBoldTshirtLabel().click();
+        String EXPECTED_URL = "https://www.saucedemo.com/inventory-item.html?id=1";
+        String CURRENT_URL = productListPage.getDriver().getCurrentUrl();
+        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
+        productListPage.clickBackButton();
+        productListPage.clickBoldTshirtImg().click();
+        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
+    }
+    @Step
+    public void clickRedTshirt() {
+        productListPage.clickRedTshirtLabel().click();
+        String EXPECTED_URL = "https://www.saucedemo.com/inventory-item.html?id=3";
+        String CURRENT_URL = productListPage.getDriver().getCurrentUrl();
+        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
+        clickBack();
+        productListPage.clickRedTshirtImg().click();
+        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
+    }
+    @Step
+    public void clickOnesie() {
+        productListPage.clickOnesieLabel().click();
+        String EXPECTED_URL = "https://www.saucedemo.com/inventory-item.html?id=2";
+        String CURRENT_URL = productListPage.getDriver().getCurrentUrl();
+        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
+        clickBack();
+        productListPage.clickOnesieImg().click();
+        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
+    }
+    @Step
+    public void clickJacket() {
+        productListPage.clickJacketLabel().click();
+        String EXPECTED_URL = "https://www.saucedemo.com/inventory-item.html?id=5";
+        String CURRENT_URL = productListPage.getDriver().getCurrentUrl();
+        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
+        productListPage.clickBackButton();
+        productListPage.clickJacketImg().click();
+        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
+    }
+    @Step
+    public void clickBikeLight() {
+        productListPage.clickBikeLightLabel().click();
+        String EXPECTED_URL = "https://www.saucedemo.com/inventory-item.html?id=0";
+        String CURRENT_URL = productListPage.getDriver().getCurrentUrl();
+        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
+        productListPage.clickBackButton();
+        productListPage.clickBikeLightImg().click();
+        assertTrue("Wrong login page url.", EXPECTED_URL.equals(CURRENT_URL));
+    }
+    @Step
+    public void clickBack() {
+        productListPage.clickBackButton().click();
     }
 }
