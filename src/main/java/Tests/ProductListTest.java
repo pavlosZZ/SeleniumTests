@@ -12,10 +12,7 @@ import org.openqa.selenium.WebDriver;
 import Steps.LoginSteps;
 import Steps.ProductListSteps;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import static org.junit.Assert.assertTrue;
 
 @RunWith(SerenityRunner.class)
 public class ProductListTest {
@@ -40,11 +37,18 @@ public class ProductListTest {
 
 
     @Test
-    public void seeAllProducts(){
+    public void seeAllProducts() {
         loginSteps.enterUsername("standard_user");
         loginSteps.enterPassword("secret_sauce");
         loginSteps.clickLoginButton();
-        productListSteps.getProductList();
+        productListSteps.showAllProducts();
+    }
+    @Test
+    public void checkPrice(){
+        loginSteps.enterUsername("standard_user");
+        loginSteps.enterPassword("secret_sauce");
+        loginSteps.clickLoginButton();
+        productListSteps.checkProductPrice();
     }
 
     @After
