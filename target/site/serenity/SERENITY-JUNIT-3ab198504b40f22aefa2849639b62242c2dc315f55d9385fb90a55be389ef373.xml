@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="Tests.LoginTest" skipped="0" tests="2" time="20.94" timestamp="2022-01-31 02:16:20"><testcase classname="Tests.LoginTest" name="User login"/><testcase classname="Tests.LoginTest" name="User fail login"/></testsuite>
