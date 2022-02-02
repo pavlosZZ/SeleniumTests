@@ -106,8 +106,6 @@ public class ProductListTest {
         productListSteps.clickImage(Items.BIKE_LIGHT.getText());
     }
 
-
-
     @After
     public void afterTest(){
         driver.close();

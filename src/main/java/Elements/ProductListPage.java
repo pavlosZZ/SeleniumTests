@@ -2,10 +2,8 @@ package Elements;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 
-import javax.swing.*;
 import java.util.List;
 
 public class ProductListPage extends PageObject {
@@ -54,4 +52,7 @@ public class ProductListPage extends PageObject {
         String selector = String.format(LABEL, label);
         return $(By.xpath(selector));
     }
+
+
+
 }
