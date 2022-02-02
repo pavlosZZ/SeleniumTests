@@ -19,20 +19,10 @@ public class AddProductSteps {
         addProductPage.clickCartButton().click();
     }
 
-    @Step
-    public void checkBackpack() {
-        assertTrue(addProductPage.getBackPack().isDisplayed());
-    }
 
     @Step
     public void AddBoltTshirtToCart() {
         addProductPage.clickAddBoltTshirtButton().click();
-    }
-
-
-    @Step
-    public void checkBoltTshirt() {
-        assertTrue(addProductPage.getBoltTshirt().isDisplayed());
     }
 
     @Step
@@ -41,18 +31,8 @@ public class AddProductSteps {
     }
 
     @Step
-    public void checkRedTshirt() {
-        assertTrue(addProductPage.getRedTshirt().isDisplayed());
-    }
-
-    @Step
     public void AddBikeLightToCart() {
         addProductPage.clickAddBikeLightButton().click();
-    }
-
-    @Step
-    public void checkBikeLight() {
-        assertTrue(addProductPage.getBikeLight().isDisplayed());
     }
 
     @Step
@@ -61,17 +41,17 @@ public class AddProductSteps {
     }
 
     @Step
-    public void checkJacket() {
-        assertTrue(addProductPage.getJacket().isDisplayed());
-    }
-
-    @Step
     public void AddOnesieToCart() {
         addProductPage.clickAddOnesieButton().click();
     }
 
     @Step
-    public void checkOnesie() {
-        assertTrue(addProductPage.getOnesie().isDisplayed());
+    public void checkLabel(String text) {
+        assertTrue(addProductPage.getProductsLabel(text).isDisplayed());
+    }
+
+    @Step
+    public void checkDescription(String text) {
+        assertTrue(addProductPage.getProductsDescription(text).isDisplayed());
     }
 }

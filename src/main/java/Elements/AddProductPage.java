@@ -8,19 +8,19 @@ import org.openqa.selenium.By;
 public class AddProductPage extends PageObject {
 
     String CART_BUTTON = "[class='shopping_cart_link']";
+    String PRODUCT_LABEL_INTO_CART = "//div[@class='inventory_item_name'][text()='%s']";
+    String PRODUCT_DESCRIPTION_INTO_CART = "//div[@class='inventory_item_desc'][text()='%s']";
     String BACKPACK_TO_CART = "[name='add-to-cart-sauce-labs-backpack']";
-    String BACKPACK_INTO_CART= "[id='item_4_title_link']";
     String BIKE_LIGHT_TO_CART  = "[name='add-to-cart-sauce-labs-bike-light']";
-    String BIKE_LIGHT_INTO_CART ="[id='item_0_title_link']";
     String BOLT_TSHIRT_TO_CART = "[name='add-to-cart-sauce-labs-bolt-t-shirt']" ;
-    String BOLT_TSHIRT_INTO_CART = "[id='item_1_title_link']";
     String RED_TSHIRT_TO_CART = "[name='add-to-cart-test.allthethings()-t-shirt-(red)']";
-    String RED_TSHIRT_INTO_CART = "[id='item_3_title_link']";
     String JACKET_TO_CART = "[name='add-to-cart-sauce-labs-fleece-jacket']";
-    String JACKET_INTO_CART= "[id='item_5_title_link']";
     String ONESIE_TO_CART = "[name='add-to-cart-sauce-labs-onesie']";
-    String ONESIE_INTO_CART = "[id='item_2_title_link']";
 
+    public  WebElementFacade getProductsLabel(String text){
+        String selector = String.format(PRODUCT_LABEL_INTO_CART, text);
+        return $(By.xpath(selector));
+    }
     public WebElementFacade clickAddToCartButton() {
         return $(By.cssSelector(BACKPACK_TO_CART));
     }
@@ -45,27 +45,8 @@ public class AddProductPage extends PageObject {
     }
 
 
-    public WebElementFacade getBackPack() {
-        return $(By.cssSelector(BACKPACK_INTO_CART));
-    }
-
-    public WebElementFacade getBoltTshirt() {
-        return $(By.cssSelector(BOLT_TSHIRT_INTO_CART));
-    }
-
-    public WebElementFacade getRedTshirt() {
-        return $(By.cssSelector(RED_TSHIRT_INTO_CART));
-    }
-
-    public WebElementFacade getBikeLight() {
-        return $(By.cssSelector(BIKE_LIGHT_INTO_CART));
-    }
-
-    public WebElementFacade getJacket() {
-        return $(By.cssSelector(JACKET_INTO_CART));
-    }
-
-    public WebElementFacade getOnesie() {
-        return $(By.cssSelector(ONESIE_INTO_CART));
+    public WebElementFacade getProductsDescription(String text) {
+        String selector = String.format(PRODUCT_DESCRIPTION_INTO_CART, text);
+        return $(By.xpath(selector));
     }
 }

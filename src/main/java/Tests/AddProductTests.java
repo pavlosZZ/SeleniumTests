@@ -38,7 +38,9 @@ public class AddProductTests {
         loginSteps.clickLoginButton();
         addProductSteps.AddBackpackToCart();
         addProductSteps.clickCart();
-        addProductSteps.checkBackpack();
+        addProductSteps.checkLabel(ProductListTest.Items.BACKPACK.getText());
+        addProductSteps.checkDescription(ProductListTest.Items.BACKPACK_DESCRIPTION.getText());
+
     }
 
     @Test
@@ -48,7 +50,8 @@ public class AddProductTests {
         loginSteps.clickLoginButton();
         addProductSteps.AddBoltTshirtToCart();
         addProductSteps.clickCart();
-        addProductSteps.checkBoltTshirt();
+        addProductSteps.checkLabel(ProductListTest.Items.BOLD_TSHIRT.getText());
+        addProductSteps.checkDescription(ProductListTest.Items.BOLD_TSHIRT_DESCRIPTION.getText());
     }
 
     @Test
@@ -58,7 +61,8 @@ public class AddProductTests {
         loginSteps.clickLoginButton();
         addProductSteps.AddRedTshirtToCart();
         addProductSteps.clickCart();
-        addProductSteps.checkRedTshirt();
+        addProductSteps.checkLabel(ProductListTest.Items.RED_TSHIRT.getText());
+        addProductSteps.checkDescription(ProductListTest.Items.RED_TSHIRT_DESCRIPTION.getText());
     }
 
     @Test
@@ -68,7 +72,8 @@ public class AddProductTests {
         loginSteps.clickLoginButton();
         addProductSteps.AddBikeLightToCart();
         addProductSteps.clickCart();
-        addProductSteps.checkBikeLight();
+        addProductSteps.checkLabel(ProductListTest.Items.BIKE_LIGHT.getText());
+        addProductSteps.checkDescription(ProductListTest.Items.BIKE_LIGHT_DESCRIPTION.getText());
     }
 
     @Test
@@ -78,7 +83,8 @@ public class AddProductTests {
         loginSteps.clickLoginButton();
         addProductSteps.AddJacketToCart();
         addProductSteps.clickCart();
-        addProductSteps.checkJacket();
+        addProductSteps.checkLabel(ProductListTest.Items.JACKET.getText());
+        addProductSteps.checkDescription(ProductListTest.Items.JACKET_DESCRIPTION.getText());
     }
 
     @Test
@@ -88,7 +94,8 @@ public class AddProductTests {
         loginSteps.clickLoginButton();
         addProductSteps.AddOnesieToCart();
         addProductSteps.clickCart();
-        addProductSteps.checkOnesie();
+        addProductSteps.checkLabel(ProductListTest.Items.ONESIE.getText());
+        addProductSteps.checkDescription(ProductListTest.Items.ONESIE_DESCRIPTION.getText());
     }
 
     @Test
@@ -99,7 +106,8 @@ public class AddProductTests {
         productListSteps.clickLabel(ProductListTest.Items.BACKPACK.getText());
         addProductSteps.AddBackpackToCart();
         addProductSteps.clickCart();
-        addProductSteps.checkBackpack();
+        addProductSteps.checkLabel(ProductListTest.Items.BACKPACK.getText());
+        addProductSteps.checkDescription(ProductListTest.Items.BACKPACK_DESCRIPTION.getText());
     }
 
     @Test
@@ -110,7 +118,9 @@ public class AddProductTests {
         productListSteps.clickLabel(ProductListTest.Items.BOLD_TSHIRT.getText());
         addProductSteps.AddBoltTshirtToCart();
         addProductSteps.clickCart();
-        addProductSteps.checkBoltTshirt();
+        addProductSteps.checkLabel(ProductListTest.Items.BOLD_TSHIRT.getText());
+        addProductSteps.checkDescription(ProductListTest.Items.BOLD_TSHIRT_DESCRIPTION.getText());
+
     }
 
     @Test
@@ -121,7 +131,8 @@ public class AddProductTests {
         productListSteps.clickLabel(ProductListTest.Items.RED_TSHIRT.getText());
         addProductSteps.AddRedTshirtToCart();
         addProductSteps.clickCart();
-        addProductSteps.checkRedTshirt();
+        addProductSteps.checkLabel(ProductListTest.Items.RED_TSHIRT.getText());
+        addProductSteps.checkDescription(ProductListTest.Items.RED_TSHIRT_DESCRIPTION.getText());
     }
 
     @Test
@@ -132,7 +143,8 @@ public class AddProductTests {
         productListSteps.clickLabel(ProductListTest.Items.BIKE_LIGHT.getText());
         addProductSteps.AddBikeLightToCart();
         addProductSteps.clickCart();
-        addProductSteps.checkBikeLight();
+        addProductSteps.checkLabel(ProductListTest.Items.BIKE_LIGHT.getText());
+        addProductSteps.checkDescription(ProductListTest.Items.BIKE_LIGHT_DESCRIPTION.getText());
     }
 
     @Test
@@ -143,7 +155,8 @@ public class AddProductTests {
         productListSteps.clickLabel(ProductListTest.Items.JACKET.getText());
         addProductSteps.AddJacketToCart();
         addProductSteps.clickCart();
-        addProductSteps.checkJacket();
+        addProductSteps.checkLabel(ProductListTest.Items.JACKET.getText());
+        addProductSteps.checkDescription(ProductListTest.Items.JACKET_DESCRIPTION.getText());
     }
 
     @Test
@@ -154,7 +167,8 @@ public class AddProductTests {
         productListSteps.clickLabel(ProductListTest.Items.ONESIE.getText());
         addProductSteps.AddOnesieToCart();
         addProductSteps.clickCart();
-        addProductSteps.checkOnesie();
+        addProductSteps.checkLabel(ProductListTest.Items.ONESIE.getText());
+        addProductSteps.checkDescription(ProductListTest.Items.ONESIE_DESCRIPTION.getText());
     }
 
     @After
