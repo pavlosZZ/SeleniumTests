@@ -1,5 +1,6 @@
 package Tests;
 
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
@@ -9,6 +10,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import Steps.*;
+
+import java.util.List;
 
 @RunWith(SerenityRunner.class)
 public class AddProductTests {
@@ -72,8 +75,9 @@ public class AddProductTests {
         loginSteps.clickLoginButton();
         addProductSteps.AddBikeLightToCart();
         addProductSteps.clickCart();
-        addProductSteps.checkLabel(ProductListTest.Items.BIKE_LIGHT.getText());
-        addProductSteps.checkDescription(ProductListTest.Items.BIKE_LIGHT_DESCRIPTION.getText());
+        addProductSteps.checkCartProducts(ProductListTest.Items.BIKE_LIGHT_DESCRIPTION.getText());
+//        addProductSteps.checkLabel(ProductListTest.Items.BIKE_LIGHT.getText());
+//        addProductSteps.checkDescription(ProductListTest.Items.BIKE_LIGHT_DESCRIPTION.getText());
     }
 
     @Test
@@ -83,8 +87,9 @@ public class AddProductTests {
         loginSteps.clickLoginButton();
         addProductSteps.AddJacketToCart();
         addProductSteps.clickCart();
-        addProductSteps.checkLabel(ProductListTest.Items.JACKET.getText());
-        addProductSteps.checkDescription(ProductListTest.Items.JACKET_DESCRIPTION.getText());
+        addProductSteps.checkCartProducts(ProductListTest.Items.JACKET_DESCRIPTION.getText());
+//        addProductSteps.checkLabel(ProductListTest.Items.JACKET.getText());
+//        addProductSteps.checkDescription(ProductListTest.Items.JACKET_DESCRIPTION.getText());
     }
 
     @Test
@@ -94,8 +99,9 @@ public class AddProductTests {
         loginSteps.clickLoginButton();
         addProductSteps.AddOnesieToCart();
         addProductSteps.clickCart();
-        addProductSteps.checkLabel(ProductListTest.Items.ONESIE.getText());
-        addProductSteps.checkDescription(ProductListTest.Items.ONESIE_DESCRIPTION.getText());
+        addProductSteps.checkCartProducts(ProductListTest.Items.ONESIE_DESCRIPTION.getText());
+//        addProductSteps.checkLabel(ProductListTest.Items.ONESIE.getText());
+//        addProductSteps.checkDescription(ProductListTest.Items.ONESIE_DESCRIPTION.getText());
     }
 
     @Test
@@ -143,8 +149,9 @@ public class AddProductTests {
         productListSteps.clickLabel(ProductListTest.Items.BIKE_LIGHT.getText());
         addProductSteps.AddBikeLightToCart();
         addProductSteps.clickCart();
-        addProductSteps.checkLabel(ProductListTest.Items.BIKE_LIGHT.getText());
-        addProductSteps.checkDescription(ProductListTest.Items.BIKE_LIGHT_DESCRIPTION.getText());
+        addProductSteps.checkCartProducts(ProductListTest.Items.BIKE_LIGHT_DESCRIPTION.getText());
+//        addProductSteps.checkLabel(ProductListTest.Items.BIKE_LIGHT.getText());
+//        addProductSteps.checkDescription(ProductListTest.Items.BIKE_LIGHT_DESCRIPTION.getText());
     }
 
     @Test
@@ -155,8 +162,9 @@ public class AddProductTests {
         productListSteps.clickLabel(ProductListTest.Items.JACKET.getText());
         addProductSteps.AddJacketToCart();
         addProductSteps.clickCart();
-        addProductSteps.checkLabel(ProductListTest.Items.JACKET.getText());
-        addProductSteps.checkDescription(ProductListTest.Items.JACKET_DESCRIPTION.getText());
+        addProductSteps.checkCartProducts(ProductListTest.Items.JACKET_DESCRIPTION.getText());
+//        addProductSteps.checkLabel(ProductListTest.Items.JACKET.getText());
+//        addProductSteps.checkDescription(ProductListTest.Items.JACKET_DESCRIPTION.getText());
     }
 
     @Test
@@ -167,9 +175,24 @@ public class AddProductTests {
         productListSteps.clickLabel(ProductListTest.Items.ONESIE.getText());
         addProductSteps.AddOnesieToCart();
         addProductSteps.clickCart();
-        addProductSteps.checkLabel(ProductListTest.Items.ONESIE.getText());
-        addProductSteps.checkDescription(ProductListTest.Items.ONESIE_DESCRIPTION.getText());
+        addProductSteps.checkCartProducts(ProductListTest.Items.ONESIE_DESCRIPTION.getText());
+//        addProductSteps.checkLabel(ProductListTest.Items.ONESIE.getText());
+//        addProductSteps.checkDescription(ProductListTest.Items.ONESIE_DESCRIPTION.getText());
     }
+
+//    @Test
+//    public void checkAllItemsInCart(){
+//        loginSteps.enterUsername("standard_user");
+//        loginSteps.enterPassword("secret_sauce");
+//        loginSteps.clickLoginButton();
+//        addProductSteps.selectAllProduct();
+//        List<WebElementFacade> productList = productListSteps.productListPage.getProductList();
+//        addProductSteps.clickCart();
+//        List<WebElementFacade> cartList = addProductSteps.addProductPage.getCartList();
+//        addProductSteps.checkLists(productList, cartList);
+//
+//    }
+
 
     @After
     public  void afterTest(){

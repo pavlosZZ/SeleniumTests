@@ -1,8 +1,7 @@
 package Tests;
 
 
-import Elements.ProductListPage;
-import net.serenitybdd.core.pages.WebElementFacade;
+
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
@@ -14,7 +13,6 @@ import org.openqa.selenium.WebDriver;
 import Steps.LoginSteps;
 import Steps.ProductListSteps;
 
-import java.util.List;
 
 
 @RunWith(SerenityRunner.class)
