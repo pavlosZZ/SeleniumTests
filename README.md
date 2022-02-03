@@ -1,5 +1,5 @@
 # SeleniumTests
-### A Selenium Application, used for Automated Testing on several functionalities in "www.saucedemo.com" website.  
+### A Selenium application, used for automated testing of various functions on the "www.saucedemo.com" website.
 #
 Requirements: Java 11 & Maven.
 Also used: JUnit4 & Serenity.
