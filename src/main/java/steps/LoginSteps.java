@@ -1,6 +1,6 @@
-package Steps;
+package steps;
 
-import Elements.LoginPage;
+import elements.LoginPage;
 import net.thucydides.core.annotations.Step;
 
 import static org.junit.Assert.assertTrue;

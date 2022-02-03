@@ -1,6 +1,6 @@
-package Steps;
+package steps;
 
-import Elements.AddProductPage;
+import elements.AddProductPage;
 import net.thucydides.core.annotations.Step;
 
 import static org.junit.Assert.assertTrue;
@@ -17,6 +17,21 @@ public class AddProductSteps {
     @Step
     public void clickCart() {
         addProductPage.clickCartButton().click();
+    }
+
+    @Step
+    public void addItemToCart(String itemName) {
+        addProductPage.addItemToCartItem(itemName).click();
+    }
+
+    @Step
+    public String getItemDescription() {
+        return addProductPage.getItemDescription().getText();
+    }
+
+    @Step
+    public String getItemTitle() {
+        return addProductPage.getItemTitle().getText();
     }
 
 

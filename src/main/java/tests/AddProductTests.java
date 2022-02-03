@@ -1,4 +1,4 @@
-package Tests;
+package tests;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
@@ -8,13 +8,18 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import Steps.*;
+import steps.AddProductSteps;
+import steps.CartSteps;
+import steps.LoginSteps;
+import steps.ProductListSteps;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SerenityRunner.class)
 public class AddProductTests {
 
     @Managed
-    WebDriver driver ;
+    WebDriver driver;
     String URL = "https://www.saucedemo.com/";
 
 
@@ -25,14 +30,18 @@ public class AddProductTests {
     @Steps
     ProductListSteps productListSteps;
 
+
+    @Steps
+    CartSteps cartSteps;
+
     @Before
-    public void beforeTest()  {
+    public void beforeTest() {
         driver.navigate().to(URL);
         driver.manage().window().maximize();
     }
 
     @Test
-    public void addBackpackToCartFromMainPage(){
+    public void addBackpackToCartFromMainPage() {
         loginSteps.enterUsername("standard_user");
         loginSteps.enterPassword("secret_sauce");
         loginSteps.clickLoginButton();
@@ -44,7 +53,7 @@ public class AddProductTests {
     }
 
     @Test
-    public void addBoltTshirtToCartFromMainPage(){
+    public void addBoltTshirtToCartFromMainPage() {
         loginSteps.enterUsername("standard_user");
         loginSteps.enterPassword("secret_sauce");
         loginSteps.clickLoginButton();
@@ -55,7 +64,7 @@ public class AddProductTests {
     }
 
     @Test
-    public void addRedTshirtToCartFromMainPage(){
+    public void addRedTshirtToCartFromMainPage() {
         loginSteps.enterUsername("standard_user");
         loginSteps.enterPassword("secret_sauce");
         loginSteps.clickLoginButton();
@@ -66,7 +75,7 @@ public class AddProductTests {
     }
 
     @Test
-    public void addBikeLightToCartFromMainPage(){
+    public void addBikeLightToCartFromMainPage() {
         loginSteps.enterUsername("standard_user");
         loginSteps.enterPassword("secret_sauce");
         loginSteps.clickLoginButton();
@@ -77,7 +86,7 @@ public class AddProductTests {
     }
 
     @Test
-    public void addJacketToCartFromMainPage(){
+    public void addJacketToCartFromMainPage() {
         loginSteps.enterUsername("standard_user");
         loginSteps.enterPassword("secret_sauce");
         loginSteps.clickLoginButton();
@@ -88,7 +97,7 @@ public class AddProductTests {
     }
 
     @Test
-    public void addOnesieToCartFromMainPage(){
+    public void addOnesieToCartFromMainPage() {
         loginSteps.enterUsername("standard_user");
         loginSteps.enterPassword("secret_sauce");
         loginSteps.clickLoginButton();
@@ -99,7 +108,7 @@ public class AddProductTests {
     }
 
     @Test
-    public void addBackpackToCartFromInfoPage(){
+    public void addBackpackToCartFromInfoPage() {
         loginSteps.enterUsername("standard_user");
         loginSteps.enterPassword("secret_sauce");
         loginSteps.clickLoginButton();
@@ -111,7 +120,27 @@ public class AddProductTests {
     }
 
     @Test
-    public void addBoltTshirtToCartFromInfoPage(){
+    public void demoAddItemToCart() {
+        loginSteps.enterUsername("standard_user");
+        loginSteps.enterPassword("secret_sauce");
+        loginSteps.clickLoginButton();
+        productListSteps.clickLabel(ProductListTest.Items.BACKPACK.getText());
+        System.out.println(ProductListTest.Items.BACKPACK);
+        //string backpack should not be given
+        String desc = addProductSteps.getItemDescription();
+        String title = addProductSteps.getItemTitle();
+        addProductSteps.addItemToCart("backpack");
+        addProductSteps.clickCart();
+        String found_desc = cartSteps.getItemDescription("backpack");
+        String found_title = cartSteps.getItemTitle("backpack");
+        System.out.println("found desc was " + found_desc);
+        System.out.println("found title " + found_title);
+        assertThat(found_desc).isEqualTo(desc + "");
+        assertThat(found_title).isEqualTo(title);
+    }
+
+    @Test
+    public void addBoltTshirtToCartFromInfoPage() {
         loginSteps.enterUsername("standard_user");
         loginSteps.enterPassword("secret_sauce");
         loginSteps.clickLoginButton();
@@ -124,7 +153,7 @@ public class AddProductTests {
     }
 
     @Test
-    public void addRedTshirtToCartFromInfoPage(){
+    public void addRedTshirtToCartFromInfoPage() {
         loginSteps.enterUsername("standard_user");
         loginSteps.enterPassword("secret_sauce");
         loginSteps.clickLoginButton();
@@ -136,7 +165,7 @@ public class AddProductTests {
     }
 
     @Test
-    public void addBikeLightToCartFromInfoPage(){
+    public void addBikeLightToCartFromInfoPage() {
         loginSteps.enterUsername("standard_user");
         loginSteps.enterPassword("secret_sauce");
         loginSteps.clickLoginButton();
@@ -148,7 +177,7 @@ public class AddProductTests {
     }
 
     @Test
-    public void addJacketToCartFromInfoPage(){
+    public void addJacketToCartFromInfoPage() {
         loginSteps.enterUsername("standard_user");
         loginSteps.enterPassword("secret_sauce");
         loginSteps.clickLoginButton();
@@ -160,7 +189,7 @@ public class AddProductTests {
     }
 
     @Test
-    public void addOnesieToCartFromInfoPage(){
+    public void addOnesieToCartFromInfoPage() {
         loginSteps.enterUsername("standard_user");
         loginSteps.enterPassword("secret_sauce");
         loginSteps.clickLoginButton();
@@ -172,7 +201,7 @@ public class AddProductTests {
     }
 
     @After
-    public  void afterTest(){
+    public void afterTest() {
         driver.close();
     }
 

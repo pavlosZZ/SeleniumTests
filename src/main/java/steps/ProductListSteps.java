@@ -1,6 +1,6 @@
-package Steps;
+package steps;
 
-import Elements.ProductListPage;
+import elements.ProductListPage;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 
